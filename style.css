@@ -1,0 +1,81 @@
+:root {
+    font-size: 16px;
+    --main-font: "Shippori Antique", serif;
+    --main-color: #e0e9f0;
+    --card-font: "Coming Soon", serif;
+    --card-color: #ffffff;
+    --button-font: "Roboto", sans-serif;
+    --button-color: #1893d2;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-color);
+    font-family: var(--main-font);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+header {
+    width: 80vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: inherit;
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+}
+
+.card-container {
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 25vw));
+    grid-auto-rows: min-content;
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* CARD STYLING */
+.card {
+    background-color: var(--card-color);
+    border-radius: 10px;
+    padding: 1rem;
+    font-family: var(--card-font);
+    width: clamp(300px, 25vw, 400px);
+    height: min-content;
+}
+
+.book-title {
+    text-align: center;
+    border-bottom: 1px solid var(--main-color);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    padding-left: 0.25rem;
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+/* BUTTONS */
+
+button {
+    background-color: var(--button-color);
+    border: none;
+    color: var(--main-color);
+    font-family: var(--button-font);
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
