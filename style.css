@@ -33,7 +33,7 @@ header {
 .card-container {
     width: 80vw;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min-content, 25vw));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 25vw));
     grid-auto-rows: min-content;
     gap: 2rem;
     justify-items: center;
