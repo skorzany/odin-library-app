@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Antique&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+    <!-- STYLESHEETS -->
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
+    <!-- SCRIPTS -->
     <script src="script.js" defer></script>
     <title>Library App</title>
 </head>
 <body>
-    
+    <h1>Library App</h1>
+    <div class="card-container">
+        <div class="card">
+            <h3 class="book-title">Book Title</h3>
+            <p class="book-author">Author: <span>X.Y. Z.</span></p>
+            <p class="book-pages">Pages: <span>-1</span></p>
+            <p class="book-read">Read: <span>Not read yet</span></p>
+            <div class="card-buttons">
+                <button class="book-btn">Remove this book</button>
+                <button class="book-btn">Change read status</button>
+            </div>
+        </div>
+    </div>
+    <button class="main-btn">Add new book</button>
 </body>
 </html>
