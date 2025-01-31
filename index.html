@@ -20,7 +20,7 @@
         <button class="main-btn">Add new book</button>
     </header>
     <div class="card-container">
-        <div class="card">
+        <!-- <div class="card">
             <h3 class="book-title">Book Title</h3>
             <p class="book-author">Author: <span>X.Y. Z.</span></p>
             <p class="book-pages">Pages: <span>-1</span></p>
@@ -149,7 +149,19 @@
                 <button class="book-btn">Remove this book</button>
                 <button class="book-btn">Change read status</button>
             </div>
-        </div>
+        </div> -->
     </div>
+    <template id="card-template">
+        <div class="card">
+            <h3 class="book-title"></h3>
+            <p class="book-author">Author: <span></span></p>
+            <p class="book-pages">Pages: <span></span></p>
+            <p class="book-read">Read: <span></span></p>
+            <div class="card-buttons">
+                <button class="book-btn">Remove this book</button>
+                <button class="book-btn">Change read status</button>
+            </div>
+        </div>
+    </template>
 </body>
 </html>
