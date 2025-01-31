@@ -39,6 +39,10 @@ header {
     justify-items: center;
 }
 
+.empty::after {
+    content: "There are no books in your library. Click 'Add new book' to add one!"
+}
+
 /* CARD STYLING */
 .card {
     background-color: var(--card-color);

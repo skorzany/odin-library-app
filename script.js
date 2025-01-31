@@ -46,6 +46,8 @@ function createCard(obj) {
 
 function showCards(arr) {
     const container = document.querySelector(".card-container");
+    if(!arr.length) {container.classList.add("empty")}
+    else container.classList.remove("empty");
     container.innerHTML = "";
 
     for (const book of arr) {const card = createCard(book); container.appendChild(card);}
