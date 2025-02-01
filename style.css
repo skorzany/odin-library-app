@@ -53,6 +53,7 @@ header {
     font-family: var(--card-font);
     width: clamp(300px, 25vw, 400px);
     height: min-content;
+    box-shadow: 0.1rem 0.2rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 .book-title {
