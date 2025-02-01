@@ -1,5 +1,3 @@
-const myLibrary = [];
-
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -9,12 +7,14 @@ function Book(title, author, pages, read) {
 
 Book.prototype.changeReadStatus = function() {
     this.read = !this.read;
+    showCards();
 }
 
 function addBookToLibrary(title, author, pages, read) {
     const myBook = new Book(title, author, pages, read);
     myBook.idx = myLibrary.length;
     myLibrary.push(myBook);
+    showCards();
 }
 
 function decreaseIndexes(arr, start) {
@@ -24,6 +24,7 @@ function decreaseIndexes(arr, start) {
 function removeBookFromLibrary(idx) {
     decreaseIndexes(myLibrary, idx);
     myLibrary.splice(idx, 1);
+    showCards();
 }
 
 function createCard(obj) {
@@ -44,18 +45,24 @@ function createCard(obj) {
     return card;
 }
 
-function showCards(arr) {
+function showCards() {
     const container = document.querySelector(".card-container");
-    if(!arr.length) {container.classList.add("empty")}
+    if(!myLibrary.length) {container.classList.add("empty")}
     else container.classList.remove("empty");
     container.innerHTML = "";
 
-    for (const book of arr) {const card = createCard(book); container.appendChild(card);}
+    for (const book of myLibrary) {const card = createCard(book); container.appendChild(card);}
+    console.log('showed your cards');
 }
 
+function main() {
+    const dialog = document.querySelector("dialog");
+    const form = document.querySelector("form");
+    const inputs = document.querySelectorAll("input[type='text'], input[type='number']");
+    const radioYes = document.querySelector("#yes");
+    showCards();
 
-document.querySelector("body").addEventListener("click",
-    (e) => {
+    document.body.addEventListener("click", (e) => {
         const target = e.target;
         if(target.matches("button")) {
             if(target.matches(".book-btn")) {
@@ -67,23 +74,16 @@ document.querySelector("body").addEventListener("click",
                 }
                 else removeBookFromLibrary(idx);
             }
-            else if(target.matches(".main-btn")){
-                const dialog = document.querySelector("dialog");
-                const closeButton = dialog.querySelector("button");
-                dialog.showModal();
-                closeButton.addEventListener("click", () => {dialog.close();})
-            }
-            showCards(myLibrary);
+            else dialog.showModal();
         }
-    }
-);
+    });
 
-const dummy1 = {title: "Title1", author: "Author1", pages: 12345, read: false};
-const dummy2 = {title: "Title2", author: "Author2", pages: 67890, read: true};
-const dummy3 = {title: "Title3", author: "Author3", pages: -1, read: false};
-const dummy4 = {title: "Title4", author: "Author4", pages: 3.14, read: true};
-const dummies = [dummy1, dummy2, dummy3, dummy4];
+    form.addEventListener("submit", () => {
+        addBookToLibrary(inputs[0].value, inputs[1].value, inputs[2].value, radioYes.checked);
+        [inputs[0].value, inputs[1].value, inputs[2].value] = ["", "", 1];
+    });
+}
 
-for(const dummy of dummies) {addBookToLibrary(...Object.values(dummy))};
 
-showCards(myLibrary);
+var myLibrary = [];
+main();
