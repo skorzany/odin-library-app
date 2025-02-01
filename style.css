@@ -7,6 +7,7 @@
     --button-font: "Roboto", sans-serif;
     --button-color: #1893d2;
     --input-width: 200px;
+    --backdrop-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -86,6 +87,10 @@ button {
 }
 
 /* DIALOG */
+
+::backdrop {
+    background-color: var(--backdrop-color);
+}
 
 dialog {
     margin: auto;
