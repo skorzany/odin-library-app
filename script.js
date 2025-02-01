@@ -51,8 +51,7 @@ function showCards() {
     else container.classList.remove("empty");
     container.innerHTML = "";
 
-    for (const book of myLibrary) {const card = createCard(book); container.appendChild(card);}
-    console.log('showed your cards');
+    for (const book of myLibrary.toReversed()) {const card = createCard(book); container.appendChild(card);}
 }
 
 function main() {
@@ -85,5 +84,5 @@ function main() {
 }
 
 
-var myLibrary = [];
+const myLibrary = [];
 main();
