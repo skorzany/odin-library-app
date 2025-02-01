@@ -6,6 +6,7 @@
     --card-color: #ffffff;
     --button-font: "Roboto", sans-serif;
     --button-color: #1893d2;
+    --input-width: 200px;
 }
 
 body {
@@ -82,4 +83,53 @@ button {
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
     cursor: pointer;
+}
+
+/* DIALOG */
+
+dialog {
+    margin: auto;
+    font-size: 0.75rem;
+}
+
+form>.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs input[type="text"]+label {
+    margin-top: 0.5rem;
+}
+
+input:not([type="radio"]) {
+    padding: 0 0.5rem;
+    width: var(--input-width);
+}
+
+fieldset {
+    margin-top: 1rem;
+}
+
+fieldset ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+fieldset li {
+    display: flex;
+}
+
+fieldset li label {
+    margin-right: 0.5rem;
+}
+
+.radios ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }
