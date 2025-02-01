@@ -54,21 +54,24 @@ function showCards(arr) {
 }
 
 
-document.querySelector(".card-container").addEventListener("click",
+document.querySelector("body").addEventListener("click",
     (e) => {
         const target = e.target;
-        const card = target.closest(".card");
-        const idx = card.dataset.idx;
-        console.log(idx);
-        if(target.classList.contains("remove")){
-            removeBookFromLibrary(idx);
-            console.log("clicked remove");
-        } else if(target.classList.contains("flip")){
-            const book = myLibrary[idx];
-            book.changeReadStatus();
-            console.log("clicked change status");
+        if(target.matches("button")) {
+            if(target.matches(".book-btn")) {
+                const card = target.closest(".card");
+                const idx = card.dataset.idx;
+                if(target.classList.contains("flip")) {
+                    const book = myLibrary[idx];
+                    book.changeReadStatus();
+                }
+                else removeBookFromLibrary(idx);
+            }
+            else {
+                
+            }
+            showCards(myLibrary);
         }
-        showCards(myLibrary);
     }
 );
 
