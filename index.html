@@ -163,5 +163,31 @@
             </div>
         </div>
     </template>
+    <dialog>
+        <form action="" method="dialog">
+            <div class="inputs">
+                <label for="title">Title: <span aria-label="required">*</span></label>
+                <input type="text" name="title" id="title" required>
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author">
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages" min="1" step="1">
+                <fieldset>
+                    <legend>Have you read it?</legend>
+                    <ul>
+                        <li>
+                            <label for="yes">Yes</label>
+                            <input type="radio" name="read" id="yes" value="true" checked="checked">
+                        </li>
+                        <li>
+                            <label for="no">No</label>
+                            <input type="radio" name="read" id="no" value="false">
+                        </li>
+                    </ul>
+                </fieldset>
+            </div>
+            <button type="submit">Add book</button>
+        </form>
+    </dialog>
 </body>
 </html>

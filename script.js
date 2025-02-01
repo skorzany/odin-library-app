@@ -67,8 +67,11 @@ document.querySelector("body").addEventListener("click",
                 }
                 else removeBookFromLibrary(idx);
             }
-            else {
-                
+            else if(target.matches(".main-btn")){
+                const dialog = document.querySelector("dialog");
+                const closeButton = dialog.querySelector("button");
+                dialog.showModal();
+                closeButton.addEventListener("click", () => {dialog.close();})
             }
             showCards(myLibrary);
         }
