@@ -7,14 +7,12 @@ function Book(title, author, pages, read) {
 
 Book.prototype.changeReadStatus = function() {
     this.read = !this.read;
-    showCards();
 }
 
 function addBookToLibrary(title, author, pages, read) {
     const myBook = new Book(title, author, pages, read);
     myBook.idx = myLibrary.length;
     myLibrary.push(myBook);
-    showCards();
 }
 
 function decreaseIndexes(arr, start) {
@@ -24,7 +22,6 @@ function decreaseIndexes(arr, start) {
 function removeBookFromLibrary(idx) {
     decreaseIndexes(myLibrary, idx);
     myLibrary.splice(idx, 1);
-    showCards();
 }
 
 function createCard(obj) {
@@ -51,7 +48,10 @@ function showCards() {
     else container.classList.remove("empty");
     container.innerHTML = "";
 
-    for (const book of myLibrary.toReversed()) {const card = createCard(book); container.appendChild(card);}
+    for (let i = myLibrary.length - 1; -1 < i; i--) {
+        const card = createCard(myLibrary[i]);
+        container.appendChild(card);
+    }
 }
 
 function main() {
@@ -59,7 +59,6 @@ function main() {
     const form = document.querySelector("form");
     const inputs = document.querySelectorAll("input[type='text'], input[type='number']");
     const radioYes = document.querySelector("#yes");
-    showCards();
 
     document.body.addEventListener("click", (e) => {
         const target = e.target;
@@ -74,12 +73,14 @@ function main() {
                 else removeBookFromLibrary(idx);
             }
             else dialog.showModal();
+            showCards();
         }
     });
 
     form.addEventListener("submit", () => {
         addBookToLibrary(inputs[0].value, inputs[1].value, inputs[2].value, radioYes.checked);
         [inputs[0].value, inputs[1].value, inputs[2].value] = ["", "", 1];
+        showCards();
     });
 }
 
