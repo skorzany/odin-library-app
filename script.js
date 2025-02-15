@@ -1,12 +1,40 @@
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.changeReadStatus = function() {
-    this.read = !this.read;
+class Book {
+    #idx;
+    #title;
+    #author;
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    changeReadStatus() {
+        this.read = !this.read;
+    }
+    get idx() {
+        return this.#idx;
+    }
+    set idx(n) {
+        if(typeof n !== "number" || n < 0 || n%1 ) {
+            throw "Index must be a positive integer or 0";
+        }
+        this.#idx = n;
+    }
+    get title() {
+        return this.#title;
+    }
+    set title(s) {
+        s = s.toLowerCase().trim();
+        this.#title = s.charAt(0).toUpperCase() + s.slice(1);
+    }
+    get author() {
+        return this.#author;
+    }
+    set author(s) {
+        const parts = s.toLowerCase().trim().split(" ");
+        parts.forEach((ele, idx) => parts[idx] = ele.charAt(0).toUpperCase() + ele.slice(1));
+        this.#author = parts.join(" ");
+    }
 }
 
 function addBookToLibrary(title, author, pages, read) {
