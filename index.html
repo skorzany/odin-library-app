@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shippori+Antique&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coming+Soon&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shippori+Antique&display=swap"
+      rel="stylesheet"
+    />
     <!-- STYLESHEETS -->
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
     <!-- SCRIPTS -->
     <script src="script.js" defer></script>
     <title>Library App</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>My Library</h1>
-        <button class="main-btn">Add new book</button>
+      <h1>My Library</h1>
+      <button class="main-btn">Add new book</button>
     </header>
     <div class="card-container empty"></div>
     <template id="card-template">
-        <div class="card">
-            <h3 class="book-title"></h3>
-            <p class="book-author">Author: <span></span></p>
-            <p class="book-pages">Pages: <span></span></p>
-            <p class="book-read">Read: <span></span></p>
-            <div class="card-buttons">
-                <button class="book-btn remove">Remove this book</button>
-                <button class="book-btn flip">Change read status</button>
-            </div>
+      <div class="card">
+        <h3 class="book-title"></h3>
+        <p class="book-author">Author: <span></span></p>
+        <p class="book-pages">Pages: <span></span></p>
+        <p class="book-read">Read: <span></span></p>
+        <div class="card-buttons">
+          <button class="book-btn remove">Remove this book</button>
+          <button class="book-btn flip">Change read status</button>
         </div>
+      </div>
     </template>
     <dialog>
-        <form method="dialog">
-            <div class="inputs">
-                <label for="title">Title: <span aria-label="required">*</span></label>
-                <input type="text" name="title" id="title" required>
-                <label for="author">Author:</label>
-                <input type="text" name="author" id="author">
-                <label for="pages">Pages:</label>
-                <input type="number" name="pages" id="pages" min="1" step="1">
-                <fieldset class="radios">
-                    <legend>Have you read it?</legend>
-                    <ul>
-                        <li>
-                            <label for="yes">Yes</label>
-                            <input type="radio" name="read" id="yes" value="true" checked="checked">
-                        </li>
-                        <li>
-                            <label for="no">No</label>
-                            <input type="radio" name="read" id="no" value="false">
-                        </li>
-                    </ul>
-                </fieldset>
-            </div>
-            <div class="buttons">
-                <button type="submit" autofocus>Add to library</button>
-            </div>
-        </form>
+      <form method="dialog">
+        <div class="inputs">
+          <label for="title">Title: <span aria-label="required">*</span></label>
+          <input type="text" name="title" id="title" required />
+          <label for="author">
+            Author: <span aria-label="required">*</span>
+          </label>
+          <input type="text" name="author" id="author" required />
+          <label for="pages">Pages: <span aria-label="required">*</span></label>
+          <input
+            type="number"
+            name="pages"
+            id="pages"
+            min="1"
+            step="1"
+            required
+          />
+          <span class="pages-error"></span>
+          <fieldset class="radios">
+            <legend>Have you read it?</legend>
+            <ul>
+              <li>
+                <label for="yes">Yes</label>
+                <input
+                  type="radio"
+                  name="read"
+                  id="yes"
+                  value="true"
+                  checked
+                  required
+                />
+              </li>
+              <li>
+                <label for="no">No</label>
+                <input type="radio" name="read" id="no" value="false" />
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+        <div class="buttons">
+          <button type="submit" autofocus>Add to library</button>
+        </div>
+      </form>
     </dialog>
-</body>
+  </body>
 </html>
